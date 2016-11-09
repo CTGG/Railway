@@ -9,7 +9,7 @@ public class DBLogic implements DBController{
 		String sql = "select Gid from route where startp = "+startp;
 		Conn c = new Conn();
 		Connection conn = c.getConnection();
-		ResultSet rs = c.exec(conn, sql);
+		ResultSet rs = c.execQuery(conn, sql);
 		try {
 			while(rs.next()){
 				System.out.println(rs.getString(1)+"\t");
@@ -19,6 +19,11 @@ public class DBLogic implements DBController{
 		}
 		return null;
 	}
+//	public static void main(String[] args) {
+//		DBLogic lo = new DBLogic();
+//		Date startd = new Date(2016,2,2);
+//		lo.checkAvailableTickets("南京", "荆州", startd);
+//	}
 
 	public void buyTicket(ArrayList<Identity> il, ArrayList<Ticket> tl) {
 		// TODO Auto-generated method stub
