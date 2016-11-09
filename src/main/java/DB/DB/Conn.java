@@ -12,7 +12,7 @@ public class Conn {
             e1.printStackTrace();
         }
         
-        String url="jdbc:mysql://localhost:3306/SnoiDB?useUnicode=true&characterEncoding=UTF-8 ";    //JDBC的URL    
+        String url="jdbc:mysql://localhost:3306/SnoiDB?useUnicode=true&characterEncoding=UTF-8";    //JDBC的URL    
         //调用DriverManager对象的getConnection()方法，获得一个Connection对象
         Connection conn = null;
         try {
@@ -62,7 +62,7 @@ public class Conn {
 //		int rs = c.execUpdate(conn,"insert into Z_route values('G1','南京','宜昌',"+startd+")");
 		try {
 			PreparedStatement stmt = conn.prepareStatement(sql.toString());
-			stmt.setString(1, "G4");
+			stmt.setString(1, "G5");
 			stmt.setString(2, "南京");
 			stmt.setString(3, "宜昌");
 			stmt.setDate(4, startd);
