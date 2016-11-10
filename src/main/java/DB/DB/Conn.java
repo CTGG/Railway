@@ -17,6 +17,7 @@ public class Conn {
         Connection conn = null;
         try {
             conn = DriverManager.getConnection(url, "ctgg","ctg1219");
+            conn.setAutoCommit(false);
             System.out.print("成功连接到数据库！");
         } catch (SQLException e){
             e.printStackTrace();
