@@ -36,8 +36,8 @@ public class MySQL {
 				gid=gid.substring(1);
 			}
 			int gidd=Integer.parseInt(gid.substring(1));
-			if (gidd>5) {
-				break;
+			if (gidd==5||gidd>50) {
+				continue;
 			}
 			Random random=new Random();
 			int[] len_h=new int[strings.length];
