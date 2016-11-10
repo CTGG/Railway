@@ -12,12 +12,11 @@ public class Conn {
             e1.printStackTrace();
         }
         
-        String url="jdbc:mysql://localhost:3306/SnoiDB?useUnicode=true&characterEncoding=UTF-8";    //JDBC的URL    
+        String url="jdbc:mysql://anyquant.net:15003/exercise?useUnicode=true&characterEncoding=UTF-8";    //JDBC的URL    
         //调用DriverManager对象的getConnection()方法，获得一个Connection对象
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(url, "CTGG","dreamG");
-            //创建一个Statement对象
+            conn = DriverManager.getConnection(url, "ctgg","ctg1219");
             System.out.print("成功连接到数据库！");
         } catch (SQLException e){
             e.printStackTrace();
@@ -25,25 +24,23 @@ public class Conn {
         return conn;
     }
 	
-	public ResultSet execQuery(Connection conn,String sql){
+	public ResultSet execQuery(Connection conn,PreparedStatement stmt){	
 		ResultSet rs = null;
+		if(stmt == null){			
+			return rs;
+		}
 		try {
-			Statement stmt = conn.createStatement();
-			rs = stmt.executeQuery(sql);
-			
-//			conn.close();
-//			stmt.close();
+			rs = stmt.executeQuery();			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return rs;
 	}
-	public int execUpdate(Connection conn,String sql){
+	
+	public int execUpdate(Connection conn,PreparedStatement stmt){
 		int rs = 0;
 		try {
-			Statement stmt = conn.createStatement();
-			rs = stmt.executeUpdate(sql);
-			
+			stmt.executeUpdate();
 //			conn.close();
 //			stmt.close();
 		} catch (SQLException e) {
@@ -55,7 +52,6 @@ public class Conn {
 	public static void main(String[] args) {
 		Conn c = new Conn();
 		Connection conn = c.getConnection();
-//		ResultSet rs = c.exec(conn,"select * from Z_user");
 		//2016-02-02
 		Date startd = new Date(116,1,2);
 		String sql = "insert into Z_route values(?,?,?,?,?)";
