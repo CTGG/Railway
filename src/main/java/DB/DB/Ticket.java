@@ -4,9 +4,11 @@ import java.sql.*;
 public class Ticket {
 	private String startp;
 	private String endp;
+	private int startn;
+	private int endn;
 	private Timestamp startt;
 	private Timestamp endt;
-	private Type type;
+	private Type type;	
 	private String Gid;
 	
 	public String getStartp() {
@@ -44,6 +46,18 @@ public class Ticket {
 	}
 	public void setGid(String gid) {
 		Gid = gid;
+	}
+	public int getStartn() {
+		return startn;
+	}
+	public void setStartn(int startn) {
+		this.startn = startn;
+	}
+	public int getEndn() {
+		return endn;
+	}
+	public void setEndn(int endn) {
+		this.endn = endn;
 	}
 	
 	

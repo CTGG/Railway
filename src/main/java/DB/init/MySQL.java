@@ -10,11 +10,7 @@ import java.util.Random;
 import DB.DB.Conn;
 import DB.DB.Type;
 
-/*
-  DB/DB.init/MySQL.java
-  @author cxworks
-  2016-11-10
-*/
+
 
 public class MySQL {
 	Conn conn;

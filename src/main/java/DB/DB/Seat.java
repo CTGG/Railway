@@ -1,5 +1,7 @@
 package DB.DB;
 
+import java.sql.Date;
+
 public class Seat {
 	private String Gid;
 	private int x; //part of train
@@ -8,6 +10,7 @@ public class Seat {
 	private int n1; // number of start station
 	private int n2; //number of end station
 	private Type type;
+	private Date date;
 	public String getGid() {
 		return Gid;
 	}
@@ -49,6 +52,12 @@ public class Seat {
 	}
 	public void setType(Type type) {
 		this.type = type;
+	}
+	public Date getDate() {
+		return date;
+	}
+	public void setDate(Date date) {
+		this.date = date;
 	}
 	
 	

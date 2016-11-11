@@ -6,9 +6,9 @@ public class Conn {
         try{
             //调用Class.forName()方法加载驱动程序
             Class.forName("com.mysql.jdbc.Driver");
-            System.out.println("成功加载MySQL驱动！");
+//            System.out.println("成功加载MySQL驱动！");
         }catch(ClassNotFoundException e1){
-            System.out.println("找不到MySQL驱动!");
+//            System.out.println("找不到MySQL驱动!");
             e1.printStackTrace();
         }
         
@@ -18,7 +18,7 @@ public class Conn {
         try {
             conn = DriverManager.getConnection(url, "ctgg","ctg1219");
             conn.setAutoCommit(false);
-            System.out.print("成功连接到数据库！");
+//            System.out.print("成功连接到数据库！");
         } catch (SQLException e){
             e.printStackTrace();
         }

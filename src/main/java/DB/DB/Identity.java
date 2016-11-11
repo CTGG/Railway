@@ -2,12 +2,17 @@ package DB.DB;
 
 public class Identity {
 
-	private String username;
 	private String name;
 	private String idnumber;
-	public Identity(String username,String name, String idnumber) {
-		this.username = username;
+	public Identity(String name, String idnumber) {
 		this.name = name;
 		this.idnumber = idnumber;
 	}
+	public String getName() {
+		return name;
+	}
+	public String getIdnumber() {
+		return idnumber;
+	}
+	
 }

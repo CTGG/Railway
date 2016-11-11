@@ -6,11 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/*
-  DB/DB.init/FileIO.java
-  @author cxworks
-  2016-11-10
-*/
+
 
 public class FileIO {
 	
