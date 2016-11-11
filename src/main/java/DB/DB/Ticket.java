@@ -2,14 +2,14 @@ package DB.DB;
 
 import java.sql.*;
 public class Ticket {
-	private String startp;
-	private String endp;
-	private int startn;
-	private int endn;
-	private Timestamp startt;
-	private Timestamp endt;
-	private Type type;	
-	private String Gid;
+	private String startp;  //the start station
+	private String endp; // destination
+	private int startn; // the n of start station
+	private int endn; // the n of end station
+	private Timestamp startt; // starting time
+	private Timestamp endt; // arrive time
+	private Type type;	// the type of seat
+	private String Gid; // the id of the line
 	
 	public String getStartp() {
 		return startp;

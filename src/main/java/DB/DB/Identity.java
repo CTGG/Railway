@@ -1,9 +1,8 @@
 package DB.DB;
 
 public class Identity {
-
-	private String name;
-	private String idnumber;
+	private String name; // the name of passenger
+	private String idnumber; // ID number of passenger
 	public Identity(String name, String idnumber) {
 		this.name = name;
 		this.idnumber = idnumber;

@@ -59,7 +59,7 @@ public class DBLogic implements DBController{
 				Identity p = (Identity) people.get(i);
 				Seat s = (Seat) seats.get(i);
 				System.out.println("乘车人:  "+p.getName()+ " "+startp+" 到 "+endp);
-				System.out.println(Type.toChinese(type)+" "+s.getX()+"车 "+s.getY()+"排 "+s.getZ()+"座");
+				System.out.println(Type.toChinese(type)+" "+s.getX()+"车 "+s.getY()+"排 "+(s.getZ()+1)+"座");
 			}
 		}
 		
@@ -386,7 +386,9 @@ public class DBLogic implements DBController{
 		DBLogic lo = new DBLogic();
 //		lo.testUpdate();		
 		Date startd = new Date(116,10,10);
-		lo.checkAvailableTickets("北京南", "上海虹桥", startd);
+		long start=System.currentTimeMillis();
+//		lo.checkAvailableTickets("北京南", "上海虹桥", startd);
+		
 //		lo.checkAvailableTickets("南京", "荆州", startd);
 //		Set<String> a1 = lo.getGidWithStartp("南京");
 //		System.out.println(a1);
@@ -396,7 +398,8 @@ public class DBLogic implements DBController{
 		il.add(i2);
 		il.add(i1);
 		lo.buyTicket("曲阜东", "上海虹桥", "G11", startd, Type.COMMERCIAL, "hh", il);
-		
+		long end = System.currentTimeMillis();
+		System.out.println("程序运行时间： "+(end-start)+"ms");
 	}
 
 
