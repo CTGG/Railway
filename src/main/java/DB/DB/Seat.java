@@ -1,7 +1,6 @@
 package DB.DB;
 
 import java.sql.Date;
-import java.sql.Timestamp;
 
 public class Seat {
 	private String Gid;
@@ -11,10 +10,7 @@ public class Seat {
 	private int n1; // number of start station
 	private int n2; //number of end station
 	private Type type;
-	private String typeStr;
 	private Date date;
-	private Timestamp stime;
-	private String state;
 	public String getGid() {
 		return Gid;
 	}
@@ -62,24 +58,6 @@ public class Seat {
 	}
 	public void setDate(Date date) {
 		this.date = date;
-	}
-	public Timestamp getStime() {
-		return stime;
-	}
-	public void setStime(Timestamp stime) {
-		this.stime = stime;
-	}
-	public String getState() {
-		return state;
-	}
-	public void setState(String state) {
-		this.state = state;
-	}
-	public String getTypeStr() {
-		return typeStr;
-	}
-	public void setTypeStr(String typeStr) {
-		this.typeStr = typeStr;
 	}
 	
 	
