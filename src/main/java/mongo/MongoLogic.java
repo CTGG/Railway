@@ -55,7 +55,6 @@ public class MongoLogic {
 			System.out.println("无座: "+map.get(Type.STAND));
 		}		
 	}
-	
 	public void buyTicket(String startp, String endp, String Gid, Date startd, Type type, String username,
 			Set<Identity> il) {
 		//1.get avail tickets
