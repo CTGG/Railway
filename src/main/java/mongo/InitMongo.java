@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -96,9 +98,17 @@ public class InitMongo {
         ArrayList<Document> documents = new ArrayList<Document>();
 
         for (Station station : stations) {
+        	Timestamp timestamp = station.getArrivet();
+			String tsStr = "";  
+	        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+	        try {  
+	            tsStr = sdf.format(timestamp);    
+	        } catch (Exception e) {  
+	            e.printStackTrace();  
+	        }  
         	Document document = new Document("Gid",station.getGid()).
             		append("midp", station.getMidp()).
-            		append("arrivet", station.getArrivet()).
+            		append("arrivet", tsStr).
             		append("waitt", station.getWaitt()).
             		append("n", station.getN());
             documents.add(document);
@@ -112,14 +122,16 @@ public class InitMongo {
 		int txt=0;
 		for (String[] strings : data) {
 			String gid=strings[0];
+//			System.out.println(gid);
+//			if (txt==0) {
+//				break;
+//			}
 			if (txt==0) {
 				txt++;
 				gid=gid.substring(1);
 			}
 			int gidd=Integer.parseInt(gid.substring(1));
-			if (gidd==5||gidd>50) {
-				continue;
-			}
+			
 			Random random=new Random();
 			int[] len_h=new int[strings.length];
 			int[] wait_h=new int[strings.length];
@@ -152,7 +164,8 @@ public class InitMongo {
 									seat.setY(q);
 									seat.setZ(l);
 									seat.setTypeStr(Type.toChinese(Type.COMMERCIAL));
-									seat.setStime(new Timestamp(calendar.getTimeInMillis()));
+									Timestamp timestamp = new Timestamp(calendar.getTimeInMillis()); 
+									seat.setStime(timestamp);
 									seat.setState("00000000000000000000000000000");
 									seats.add(seat);									
 								}
@@ -275,12 +288,20 @@ public class InitMongo {
 	private void insertSeats(Set<Seat> seats) {
 		ArrayList<Document> documents = new ArrayList<Document>();
 		for (Seat seat : seats) {
+			Timestamp timestamp = seat.getStime();
+			String tsStr = "";  
+	        DateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");  
+	        try {  
+	            tsStr = sdf.format(timestamp);    
+	        } catch (Exception e) {  
+	            e.printStackTrace();  
+	        }  
         	Document document = new Document("Gid",seat.getGid()).
             		append("x", seat.getX()).
             		append("y", seat.getY()).
             		append("z", seat.getZ()).
             		append("type", seat.getTypeStr()).
-            		append("stime", seat.getStime()).
+            		append("stime", tsStr).
             		append("state", seat.getState());
             documents.add(document);
 		}
@@ -290,8 +311,8 @@ public class InitMongo {
 	
 	public static void main(String[] args) {
 		InitMongo initMongo = new InitMongo();
-		initMongo.initIdentity();
-		initMongo.initMidStation();
+//		initMongo.initIdentity();
+//		initMongo.initMidStation();
 		initMongo.initSeat();
 		System.out.println("end");
 	}

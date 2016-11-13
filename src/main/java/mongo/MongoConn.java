@@ -22,7 +22,7 @@ public class MongoConn {
 
 			// 连接到数据库
 			mongoDatabase = mongoClient.getDatabase("mongodb");
-			System.out.println("Connect to database successfully");
+//			System.out.println("Connect to database successfully");
 
 		}catch(Exception e){
 			System.err.println( e.getClass().getName() + ": " + e.getMessage() );
